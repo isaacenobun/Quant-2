@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block content1 %}
+    
+    <div class="container">
+        <h1>Upload DXF File</h1>
+        <form method="POST" enctype="multipart/form-data" action="{% url 'home_' %}">
+            {% csrf_token %}
+            <label for="dxf_file">Choose DXF File</label>
+            <input type="file" id="dxf_file" name="dxf_file" accept=".dxf">
+            <button type="submit">Upload</button>
+        </form>
+    </div>
+
+{% endblock content1 %}
+    
