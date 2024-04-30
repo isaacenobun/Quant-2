@@ -4,7 +4,7 @@
 {% block content2 %}
     <script> 
     var windowTypeCounter = {{ existing_windows | length }} + 1;
-    var currentUnit = '{{ current_unit.unit }}';
+    var currentUnit = '{{ current_unit }}';
     </script>
 
     <!-- Windows dimensions -->
@@ -15,12 +15,12 @@
             <div class="param">
                 <label for="window-width">Width</label>
                 <input type="number" id="window-width" name="width" placeholder="0" required>
-                <p>{{current_unit.unit}}</p>
+                <p>{{current_unit}}</p>
             </div>
             <div class="param">
                 <label for="window-height">Height</label>
                 <input type="number" id="window-height" name="height" placeholder="0" required>
-                <p>{{current_unit.unit}}</p>
+                <p>{{current_unit}}</p>
             </div>
             <div class="param">
                 <label for="window-quantity">Quantity</label>
@@ -28,12 +28,12 @@
             </div>
             <div>
                 <img src="{% static 'images/Window.png' %}" width="20%" style="transform: translateY(-130px);">
-                <p id="window-width-dim">0 {{current_unit.unit}}</p>
-                <p id="window-height-dim">0 {{current_unit.unit}}</p>
+                <p id="window-width-dim">0 {{current_unit}}</p>
+                <p id="window-height-dim">0 {{current_unit}}</p>
             </div>
             <div class="element-types">
                 {% for window in existing_windows %}
-                <label class="window-tag-label" data-width="{{ window.width }}{{current_unit.unit}}" data-height="{{ window.height }}{{current_unit.unit}}" data-quantity="{{ window.quantity }} Windows">Window type {{ forloop.counter }}<a href="{% url 'delete-window-type' window.id %}"><span class="delete-btn">x</span></a></label>
+                <label class="window-tag-label" data-width="{{ window.width }}{{current_unit}}" data-height="{{ window.height }}{{current_unit}}" data-quantity="{{ window.quantity }} Windows">Window type {{ forloop.counter }}<a href="{% url 'delete-window-type' window.id %}"><span class="delete-btn">x</span></a></label>
                 {% endfor %}
             </div>
             <div class="param" id="add-type">

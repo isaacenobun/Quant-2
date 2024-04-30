@@ -14,9 +14,11 @@
             <div class="unit">
                 <p>Select unit:</p>
                 <select name="unit" id="unit">
-                    {% for choice in units.UNIT_CHOICES %}
-                        <option value="{{ choice.0 }}">{{ choice.1 }}</option>
-                    {% endfor %}
+                        <option value="mm">Millimeter</option>
+                        <option value="inch">Inch</option>
+                        <option value="m">Meter</option>
+                        <option value="ft">Foot</option>
+                        <option value="cm">Centimeter</option>
                 </select>
             </div>
         </form>

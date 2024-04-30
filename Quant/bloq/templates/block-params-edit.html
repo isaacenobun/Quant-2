@@ -4,7 +4,7 @@
 {% block content2 %}
     <script> 
     var blockTypeCounter = {{ existing_blocks | length }} + 1;
-    var currentUnit = '{{ current_unit.unit }}';
+    var currentUnit = '{{ current_unit }}';
     </script>
     
     <!-- Block dimensions -->
@@ -15,17 +15,17 @@
             <div class="param">
                 <label for="block-width">Width</label>
                 <input type="number" id="block-width" name="width" placeholder="0" required>
-                <p>{{current_unit.unit}}</p>
+                <p>{{current_unit}}</p>
             </div>
             <div class="param">
                 <label for="block-height">Height</label>
                 <input type="number" id="block-height" name="height" placeholder="0" required>
-                <p>{{current_unit.unit}}</p>
+                <p>{{current_unit}}</p>
             </div>
             <div class="param">
                 <label for="block-length">Length</label>
                 <input type="number" id="block-length" name="length" placeholder="0" required>
-                <p>{{current_unit.unit}}</p>
+                <p>{{current_unit}}</p>
             </div>
             <div class="param">
                 <label for="block-layer">Layer</label>
@@ -33,13 +33,13 @@
             </div>
             <div>
                 <img src="{% static 'images/Block.png' %}" width="20%">
-                <p id="block-width-dim">0 {{current_unit.unit}}</p>
-                <p id="block-height-dim">0 {{current_unit.unit}}</p>
-                <p id="block-length-dim">0 {{current_unit.unit}}</p>
+                <p id="block-width-dim">0 {{current_unit}}</p>
+                <p id="block-height-dim">0 {{current_unit}}</p>
+                <p id="block-length-dim">0 {{current_unit}}</p>
             </div>
             <div class="element-types">
                 {% for block in existing_blocks %}
-                <label class="block-tag-label" data-width="{{ block.width }}{{current_unit.unit}}" data-height="{{ block.height }}{{current_unit.unit}}" data-length="{{ block.length }}{{current_unit.unit}}" data-layer="{{ block.layer }}">Block type {{ forloop.counter }}<a href="{% url 'delete-block-type-edit' block.id %}"><span class="delete-btn">x</span></a></label>
+                <label class="block-tag-label" data-width="{{ block.width }}{{current_unit}}" data-height="{{ block.height }}{{current_unit}}" data-length="{{ block.length }}{{current_unit}}" data-layer="{{ block.layer }}">Block type {{ forloop.counter }}<a href="{% url 'delete-block-type-edit' block.id %}"><span class="delete-btn">x</span></a></label>
                 {% endfor %}
             </div>            
             <div class="param" id="add-type">

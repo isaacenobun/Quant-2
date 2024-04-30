@@ -4,7 +4,7 @@
 {% block content2 %}
     <script> 
     var doorTypeCounter = {{ existing_doors | length }} + 1;
-    var currentUnit = '{{ current_unit.unit }}';
+    var currentUnit = '{{ current_unit }}';
     </script>
 
     <!-- Door dimensions -->
@@ -15,12 +15,12 @@
             <div class="param">
                 <label for="door-width">Width</label>
                 <input type="number" id="door-width" name="width" placeholder="0" required>
-                <p>{{current_unit.unit}}</p>
+                <p>{{current_unit}}</p>
             </div>
             <div class="param">
                 <label for="door-height">Height</label>
                 <input type="number" id="door-height" name="height" placeholder="0" required>
-                <p>{{current_unit.unit}}</p>
+                <p>{{current_unit}}</p>
             </div>
             <div class="param">
                 <label for="door-quantity">Quantity</label>
@@ -28,12 +28,12 @@
             </div>
             <div>
                 <img src="{% static 'images/Door.png' %}" width="20%" style="transform: translateY(-130px);">
-                <p id="door-width-dim">0 {{current_unit.unit}}</p>
-                <p id="door-height-dim">0 {{current_unit.unit}}</p>
+                <p id="door-width-dim">0 {{current_unit}}</p>
+                <p id="door-height-dim">0 {{current_unit}}</p>
             </div>
             <div class="element-types">
                 {% for door in existing_doors %}
-                <label class="door-tag-label" data-width="{{ door.width }}{{current_unit.unit}}" data-height="{{ door.height }}{{current_unit.unit}}" data-quantity="{{ door.quantity }} doors">Door type {{ forloop.counter }}<a href="{% url 'delete-door-type' door.id %}"><span class="delete-btn">x</span></a></label>
+                <label class="door-tag-label" data-width="{{ door.width }}{{current_unit}}" data-height="{{ door.height }}{{current_unit}}" data-quantity="{{ door.quantity }} doors">Door type {{ forloop.counter }}<a href="{% url 'delete-door-type' door.id %}"><span class="delete-btn">x</span></a></label>
                 {% endfor %}
             </div>
             <div class="param" id="add-type">
