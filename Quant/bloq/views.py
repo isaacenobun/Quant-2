@@ -354,5 +354,8 @@ def report(request):
 # Cancel
 # -------------------------------------------------------------
 def cancel(request):
-    del request.session['unit']
-    return redirect('home')
+    if 'unit' in request.session:
+        del request.session['unit']
+        return redirect('home')
+    else:
+        return redirect('home')
